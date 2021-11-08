@@ -14,7 +14,23 @@ class QuerySolver(object):
             return self._rpn1(query)
 
         return 85
-
+    
+    def evalEx(self,query):
+        precedence = {"+":1,"-":1,"*":2,"/":2}
+        integerStack = []
+        operatorStack = []
+        for i in range(len(query.split())):
+            if query.split()[i] == "(":
+                operatorStack.append("(")
+            elif re.findall("[0-9]",query.split()[i]):
+                number = 0
+                while (i < len(query.split()) and
+                query.split()[i].isdigit()):
+                    number = 10*
+             
+                val = (val * 10) + int([i])
+                i += 1
+        
     def _rpn1(self, query):
         m = re.match(r'^(\d+) (\d+) ([\*\+])$', query)
         groups = m.groups()
